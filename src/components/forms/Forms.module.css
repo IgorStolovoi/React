@@ -1,0 +1,8 @@
+form[name="add"] {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 3px 5px;
+  margin-bottom: 5px;
+}

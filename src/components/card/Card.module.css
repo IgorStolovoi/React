@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid teal;
+  flex-basis: 180px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.card__img {
+  width: 90px;
+  height: auto;
+  align-self: center;
+  margin-bottom: 5px;
+  object-fit: contain;
+}
+p {
+  margin-bottom: 5px;
+}
