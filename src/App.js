@@ -2,34 +2,41 @@ import { userData } from "./userData";
 import { useState } from "react";
 import CardWrap from "./components/card/CardWrap";
 import Header from "./components/header/Header";
+
 import "./App.css";
 function App() {
   let [users, setUsers] = useState(userData);
-  let [name, setName] = useState("Input name for search");
 
-  function filterByName(e) {
-    e.preventDefault();
-    let searchName = users.filter((item) => item.name.split(" ")[0] === name);
+  function filterByName(name) {
+    let searchName = users.filter((item) =>
+      item.name
+        .toLocaleLowerCase()
+        .split(" ")[0]
+        .includes(name.toLocaleLowerCase())
+    );
     setUsers(searchName);
-    setName("");
   }
 
-  function inputHandler(e) {
-    setName(e.target.value);
-  }
   function addNewUser(user) {
     setUsers([...users, user]);
-    console.log(users);
   }
 
+  function sortByAge(param) {
+    let sortedUsers = [...users].sort((a, b) => {
+      return param === "ascending" ? a.age - b.age : b.age - a.age;
+    });
+    setUsers(sortedUsers);
+  }
+  function resetFilter() {
+    setUsers(userData);
+  }
   return (
     <div className="App">
       <Header
-        usersArr={users}
         nameFilter={filterByName}
-        nameValue={inputHandler}
         addUser={addNewUser}
-        value={{ input: name }}
+        sortUser={sortByAge}
+        reset={resetFilter}
       />
       <CardWrap usersArr={users} />
     </div>
