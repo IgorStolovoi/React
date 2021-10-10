@@ -1,8 +1,13 @@
+import FormWrapper from "./components/FormWrapper";
+import { FormProvider } from "./context/FormContext";
+import { initialState, formReducer } from "./reducer/formReducer";
 function App() {
   return (
-    <div className="App">
-      <div></div>
-    </div>
+    <>
+      <FormProvider initialState={initialState} reducer={formReducer}>
+        <FormWrapper />
+      </FormProvider>
+    </>
   );
 }
 
