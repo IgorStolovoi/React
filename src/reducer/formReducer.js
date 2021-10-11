@@ -3,7 +3,7 @@ export const STEP = "step";
 export const LOAD_AVATAR = "choosedAvatar";
 
 export const initialState = {
-  step: 1,
+  step: 3,
   data: {
     firstName: "",
     lastName: "",

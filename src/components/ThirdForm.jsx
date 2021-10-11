@@ -23,7 +23,9 @@ function ThirdForm() {
     let file = e.target.files[0];
     fileReader.readAsDataURL(file);
     fileReader.onloadend = () => {
-      dispatch(uploadAvatar(LOAD_AVATAR, fileReader.result));
+      if (/(?<=image\/)((jpeg)|(png)|(svg))/.test(fileReader.result)) {
+        return dispatch(uploadAvatar(LOAD_AVATAR, fileReader.result));
+      }
     };
   }
   function handleChoosedImg(e) {
