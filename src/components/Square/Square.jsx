@@ -1,16 +1,20 @@
-import React from 'react';
-import './Square.scss';
+import React from "react";
+import "./Square.scss";
 
-export default function Square({ value, onClick }) {
-    const classes = ['btn'];
+export default function Square({ value, onClick, status }) {
+  const classes = ["btn"];
 
-    if (value) {
-        classes.push('disabled');
-    }
+  if (value || status) {
+    classes.push("disabled");
+  }
 
-    return (
-        <button className={classes.join(' ')} onClick={onClick} disabled={value}>
-            {value}
-        </button>
-    );
+  return (
+    <button
+      className={classes.join(" ")}
+      onClick={onClick}
+      disabled={value || status}
+    >
+      {value}
+    </button>
+  );
 }

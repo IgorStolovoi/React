@@ -1,19 +1,30 @@
 .game {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 50px;
 }
-.game-info {
-    margin: 15px;
-    color: #ffffff;
+.futureWinner {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: center;
+  h3 {
+    max-width: 150px;
+    font-size: 18px;
+    margin-left: 20px;
   }
-.disabled {
-    .btn {
-        cursor: default;
-        &:hover {
-            top: 0;
-            background: #ffffff;
-            color: #e5dc15;
-            box-shadow: 0 12px #c2bb11, 0 18px rgba(0, 0, 0, 0.4);
-          }
+}
+.game.disabled {
+  .btn {
+    cursor: default;
+    &:hover {
+      top: 0;
+      background: #ffffff;
+      color: #e5dc15;
+      box-shadow: 0 12px #c2bb11, 0 18px rgba(0, 0, 0, 0.4);
     }
+  }
+}
+.gameBtn {
+  text-align: center;
+  margin-bottom: 10px;
 }

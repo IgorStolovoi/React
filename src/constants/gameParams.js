@@ -1,3 +1,3 @@
 export const gameParams = {
-    size: 3,
+  size: 3,
 };

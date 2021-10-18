@@ -1,0 +1,13 @@
+@import "../../../assets/styles/variables.scss";
+.primaryBtn {
+  background: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  @include border;
+  cursor: pointer;
+  margin-bottom: 10px;
+  &.disabled {
+    cursor: default;
+    background-color: grey;
+  }
+}
