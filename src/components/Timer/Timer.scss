@@ -1,0 +1,21 @@
+.timer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  &.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__content {
+    background-color: #fff;
+    width: 350px;
+    height: 330px;
+    border-radius: 10px;
+    padding-top: 20px;
+  }
+}
