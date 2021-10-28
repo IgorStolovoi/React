@@ -1,5 +1,8 @@
-.users__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.users {
+  margin-top: 20px;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

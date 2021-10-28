@@ -4,8 +4,8 @@ import PrimaryButton from "../UI/PrimaryButton/PrimaryButton";
 import { Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../utils/validationSchema";
-import { v4 as id } from "uuid";
+import { schemaForPlayer } from "../../utils/validationSchema";
+import { getId } from "../../utils/getId";
 import Timer from "../Timer/Timer";
 function RegisterForm(props) {
   const [timerActive, setTimerActive] = React.useState(false);
@@ -15,18 +15,14 @@ function RegisterForm(props) {
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaForPlayer),
   });
 
   const onTextInput = (e) => {
     props.inputValue(e.target);
   };
   const onSubmit = () => {
-    let ID = id()
-      .split("")
-      .filter((el) => Number.isInteger(+el))
-      .slice(0, 5)
-      .join("");
+    const ID = getId();
     props.inputValue({ name: "id", value: ID });
     setTimerActive((prop) => !prop);
   };

@@ -1,17 +1,23 @@
-import UsersContainer from "./components/Users/UsersContainer";
-import RegisterFormContainer from "./components/RegisterForm/RegisterFormContainer";
-import WinnerContainer from "./components/Winner/WinnerContainer";
+import { Route, Switch, Redirect } from "react-router-dom";
+import GamesList from "./components/GamesList/GamesList";
+import Game from "./components/Game/Game";
+import CreateGame from "./components/CreateGame/CreateGame";
 import "./App.scss";
 function App() {
   return (
     <div className="game">
-      <main className="game__users">
-        <UsersContainer />
-      </main>
-      <aside className="game__aside">
-        <RegisterFormContainer />
-        <WinnerContainer />
-      </aside>
+      <Switch>
+        <Route path="/" exact component={GamesList} />
+        <Route path="/competition/:competitionId" exact component={Game} />
+        <Route path="/create" exact component={CreateGame} />
+        <Route
+          path="/error"
+          render={() => {
+            alert("Some Error");
+          }}
+        />
+        <Redirect to="/error" />
+      </Switch>
     </div>
   );
 }

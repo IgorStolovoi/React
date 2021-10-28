@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
-import { usersReducer } from "./usersReducer";
+import { gameReducer } from "./gameReducer";
+import { gamesReducer } from "./gamesReducer";
 import { formReducer } from "./formReducer";
 export const rootReducer = combineReducers({
-  playersInfo: usersReducer,
+  games: gamesReducer,
+  gameInfo: gameReducer,
   newPlayer: formReducer,
 });

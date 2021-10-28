@@ -1,12 +1,17 @@
-import { DELETE_USER, SHOW_WINNER } from "../actions/userAC";
-import { SEARCH_USER } from "../actions/userAC";
-import { ADD_USER } from "../actions/userAC";
+import {
+  DELETE_USER,
+  SHOW_WINNER,
+  SEARCH_USER,
+  ADD_USER,
+  CLEAR_INFO,
+} from "../actions/userAC";
+
 const initialState = {
   users: [],
   winner: {},
   searchedUser: "",
 };
-export const usersReducer = (state = initialState, action) => {
+export const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case DELETE_USER:
       return {
@@ -27,6 +32,10 @@ export const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         winner: [...state.users].sort((x, y) => y.time - x.time).pop(),
+      };
+    case CLEAR_INFO:
+      return {
+        ...initialState,
       };
     default:
       return state;

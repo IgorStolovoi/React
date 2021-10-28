@@ -1,10 +1,15 @@
 import { connect } from "react-redux";
 import Winner from "./Winner";
 import { showWinnerAC } from "../../actions/userAC";
-const mapStateToProps = (state) => ({
-  users: state.playersInfo.users,
-  winner: state.playersInfo.winner,
-});
+const mapStateToProps = (state, ownProps) => {
+  let currentGame = state.games.find(
+    (game) => game.id === ownProps.route.match.params.competitionId
+  );
+  return {
+    users: currentGame.users,
+    winner: currentGame.winner,
+  };
+};
 const mapDispatchToProps = (dispatch) => ({
   calculateWinner: (amount) => {
     if (amount) dispatch(showWinnerAC());

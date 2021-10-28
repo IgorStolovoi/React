@@ -20,3 +20,8 @@ export const SHOW_WINNER = "Show-Winner";
 export const showWinnerAC = () => ({
   type: SHOW_WINNER,
 });
+////////////////
+export const CLEAR_INFO = "Clear_Info";
+export const clearInfoAC = () => ({
+  type: CLEAR_INFO,
+});
